@@ -1,19 +1,15 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
     int maxLength = 1 , occurCount = 1;
     string S;
     cin >> S;
-    if (S.length() > 1000000) {
-        cout << "Input value is off limit.";
-        return 0;
-    }
-    for (int i = 0 ; i < S.length() ; i++) {
-        for (int j = 1 ; j < S.length() - i ; j++) {
-            for (int k = i + 1 ; k < S.length() + 1 - j ; k++) {
+    
+    for (int i = 0; i < S.length(); i++) {
+        for (int j = 1; j < S.length() - i; j++) {
+            for (int k = i + 1; k < S.length() + 1 - j; k++) {
                 if (S.substr(i, j) == S.substr(k, j)) occurCount++;
                 //cout << S.substr(i, j) << ' ' << S.substr(k, j) << endl;
             }
@@ -22,5 +18,6 @@ int main() {
         }
     }
     cout << maxLength;
+    
     return 0;
 }
